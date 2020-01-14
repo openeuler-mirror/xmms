@@ -1,7 +1,7 @@
 Name:           xmms
 Epoch:          1
 Version:        1.2.11
-Release:        36.20071117cvs
+Release:        37.20071117cvs
 License:        GPLv2+
 Summary:        XMMS is a legacy GTK+1 music player modeled after Winamp
 URL:            http://legacy.xmms2.org/
@@ -41,6 +41,7 @@ playlists and streaming content and has a configurable interface.
 %package        devel
 Summary:        Files required for XMMS plug-in development
 Requires:       gtk+-devel pkgconfig
+Requires:       xmms
 
 %description    devel
 Files needed for building plug-ins for XMMS.
@@ -98,5 +99,8 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %{_mandir}/man1/*xmms.1*
 
 %changelog
+* Wed Jan 15 2020 openEuler Buildteam <buildteam@openeuler.org> - 1:1.2.11-37.20071117cvs
+- Fix build dependence
+
 * Fri Nov 29 2019 Ling Yang <lingyang2@huawei.com> - 1:1.2.11-36.20071117cvs
 - Package init
