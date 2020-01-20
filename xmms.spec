@@ -100,7 +100,7 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 
 %changelog
 * Mon Jan 20 2020 wangzhishun <wangzhishun1@huawei.com> - 1:1.2.11-38.20071117cvs
-- modify url, fix build dependence
+- modify url
 
 * Wed Jan 15 2020 openEuler Buildteam <buildteam@openeuler.org> - 1:1.2.11-37.20071117cvs
 - Fix build dependence
