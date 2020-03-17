@@ -1,0 +1,12 @@
+diff -uprN xmms-1.2.11-20071117cvs_raw/acinclude.m4 xmms-1.2.11-20071117cvs/acinclude.m4
+--- xmms-1.2.11-20071117cvs_raw/acinclude.m4	2007-03-09 06:45:07.000000000 +0800
++++ xmms-1.2.11-20071117cvs/acinclude.m4	2020-03-17 11:46:23.702741636 +0800
+@@ -5607,7 +5607,7 @@ EOF
+ 	  _LT_AC_TAGVAR(archive_expsym_cmds, $1)='$echo "{ global:" > $output_objdir/$libname.ver~
+   cat $export_symbols | sed -e "s/\(.*\)/\1;/" >> $output_objdir/$libname.ver~
+   $echo "local: *; };" >> $output_objdir/$libname.ver~
+-	  $CC -shared'"$tmp_addflag"' $libobjs $deplibs $compiler_flags ${wl}-soname $wl$soname ${wl}-version-script ${wl}$output_objdir/$libname.ver -o $lib'
++	  $CC -shared'"$tmp_addflag"' $libobjs $deplibs $compiler_flags ${wl}-soname $wl$soname ${wl}-version-script -fstack-protector-strong ${wl}$output_objdir/$libname.ver -o $lib'
+ 	fi
+ 	_LT_AC_TAGVAR(link_all_deplibs, $1)=no
+       else
