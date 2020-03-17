@@ -1,7 +1,7 @@
 Name:           xmms
 Epoch:          1
 Version:        1.2.11
-Release:        38.20071117cvs
+Release:        39.20071117cvs
 License:        GPLv2+
 Summary:        XMMS is a legacy GTK+1 music player modeled after Winamp
 URL:            https://git.conf.top/public/rpmbuild/src/master/xmms
@@ -33,6 +33,7 @@ Patch0012:      xmms-1.2.10-ubuntu-CVE-2007-0653.patch
 Patch0013:      xmms-alsa-fix-loop.patch
 Patch0014:      xmms-1.2.11-mikmod-fix.patch
 Patch0015:      xmms-1.2.11-a-b.patch
+Patch9000:      9000-add-stack-protector-for-build.patch
 
 %description
 XMMS is a legacy GTK+1 music player similar to Winamp's. XMMS supports
@@ -99,6 +100,9 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %{_mandir}/man1/*xmms.1*
 
 %changelog
+* Tue Mar 17 2020 Ling Yang <lingyang2@huawei.com> - 1:1.2.11-39.20071117cvs
+- Add stack protector for building
+
 * Mon Jan 20 2020 wangzhishun <wangzhishun1@huawei.com> - 1:1.2.11-38.20071117cvs
 - modify url
 
