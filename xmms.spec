@@ -1,7 +1,7 @@
 Name:           xmms
 Epoch:          1
 Version:        1.2.11
-Release:        39.20071117cvs
+Release:        40.20071117cvs
 License:        GPLv2+
 Summary:        XMMS is a legacy GTK+1 music player modeled after Winamp
 URL:            https://git.conf.top/public/rpmbuild/src/master/xmms
@@ -74,6 +74,9 @@ desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE4}
 install -Dpm 644 %{SOURCE2} %{buildroot}%{_datadir}/icons/hicolor/48x48/apps/xmms.xpm
 install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %find_lang xmms
+chrpath -d %{buildroot}/%{_libexecdir}/*
+chrpath -d %{buildroot}/%{_libdir}/xmms/Input/*
+
 %post
 /sbin/ldconfig
 %postun
@@ -100,6 +103,9 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %{_mandir}/man1/*xmms.1*
 
 %changelog
+* Wed Mar 17 2021 Guoshuai Sun <sunguoshuai@huawei.com> - 1:1.2.11-40.20071117cvs
+- Delete rpath in some binaries.
+
 * Tue Mar 17 2020 Ling Yang <lingyang2@huawei.com> - 1:1.2.11-39.20071117cvs
 - Add stack protector for building
 
