@@ -1,7 +1,7 @@
 Name:           xmms
 Epoch:          1
 Version:        1.2.11
-Release:        39.20071117cvs
+Release:        40.20071117cvs
 License:        GPLv2+
 Summary:        XMMS is a legacy GTK+1 music player modeled after Winamp
 URL:            https://git.conf.top/public/rpmbuild/src/master/xmms
@@ -13,7 +13,7 @@ Source4:        xmms.desktop
 Provides:       xmms-esd = 1:%{version}-%{release} xmms-gui bundled(libmpg123) xmms-mp3 = %{version}-%{release} xmms-libs = 1:%{version}-%{release}
 Obsoletes:      xmms-esd < 1:18.20071117cvs xmms-mp3 < 1.2.11-8 xmms-libs < 1:%{version}-%{release}
 BuildRequires:  gtk+-devel alsa-lib-devel libogg-devel libvorbis-devel mikmod-devel gettext-devel
-BuildRequires:  zlib-devel libGL-devel libXt-devel libSM-devel libXxf86vm-devel desktop-file-utils
+BuildRequires:  zlib-devel libGL-devel libXt-devel libSM-devel libXxf86vm-devel desktop-file-utils gcc
 Requires:       unzip libcanberra-gtk2 gtk2
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
@@ -100,6 +100,9 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %{_mandir}/man1/*xmms.1*
 
 %changelog
+* Mon May 31 2021 huanghaitao <huanghaitao8@huawei.com> - 1:1.2.11-40.20071117cvs
+- Completing build dependencies to fix gcc compiler missing error
+
 * Tue Mar 17 2020 Ling Yang <lingyang2@huawei.com> - 1:1.2.11-39.20071117cvs
 - Add stack protector for building
 
