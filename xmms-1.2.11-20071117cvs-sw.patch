@@ -1,0 +1,57 @@
+diff -Naur xmms-1.2.11-20071117cvs.org/aclocal.m4 xmms-1.2.11-20071117cvs.sw/aclocal.m4
+--- xmms-1.2.11-20071117cvs.org/aclocal.m4	2022-03-03 02:55:30.470000000 +0000
++++ xmms-1.2.11-20071117cvs.sw/aclocal.m4	2022-03-03 02:56:24.740000000 +0000
+@@ -1532,7 +1532,7 @@
+         [
+           # Guess based on the CPU.
+           case "$host_cpu" in
+-            alpha* | i[34567]86 | m68k | s390*)
++            sw_64* | alpha* | i[34567]86 | m68k | s390*)
+               gt_cv_int_divbyzero_sigfpe="guessing yes";;
+             *)
+               gt_cv_int_divbyzero_sigfpe="guessing no";;
+diff -Naur xmms-1.2.11-20071117cvs.org/configure xmms-1.2.11-20071117cvs.sw/configure
+--- xmms-1.2.11-20071117cvs.org/configure	2022-03-03 02:55:30.570000000 +0000
++++ xmms-1.2.11-20071117cvs.sw/configure	2022-03-03 02:58:09.280000000 +0000
+@@ -25421,7 +25421,7 @@
+ 
+           # Guess based on the CPU.
+           case "$host_cpu" in
+-            alpha* | i3456786 | m68k | s390*)
++            sw_64* | alpha* | i3456786 | m68k | s390*)
+               gt_cv_int_divbyzero_sigfpe="guessing yes";;
+             *)
+               gt_cv_int_divbyzero_sigfpe="guessing no";;
+@@ -33336,7 +33336,7 @@
+     *) CFLAGS="$CFLAGS -fomit-frame-pointer" ;;
+   esac
+   case "$host" in
+-    alpha*-*-freebsd*)
++    alpha*-*-freebsd* | sw_64*-*-freebsd*)
+ 	;;
+     *-*-freebsd*)
+ 	CFLAGS="$CFLAGS -ffast-math"
+diff -Naur xmms-1.2.11-20071117cvs.org/configure.in xmms-1.2.11-20071117cvs.sw/configure.in
+--- xmms-1.2.11-20071117cvs.org/configure.in	2022-03-03 02:55:30.530000000 +0000
++++ xmms-1.2.11-20071117cvs.sw/configure.in	2022-03-03 02:59:20.030000000 +0000
+@@ -516,7 +516,7 @@
+     *) CFLAGS="$CFLAGS -fomit-frame-pointer" ;;
+   esac
+   case "$host" in
+-    alpha*-*-freebsd*)
++    alpha*-*-freebsd* | sw_64*-*-freebsd*)
+ 	;;
+     *-*-freebsd*)
+ 	CFLAGS="$CFLAGS -ffast-math"
+diff -Naur xmms-1.2.11-20071117cvs.org/intl/dcigettext.c xmms-1.2.11-20071117cvs.sw/intl/dcigettext.c
+--- xmms-1.2.11-20071117cvs.org/intl/dcigettext.c	2022-03-03 02:55:30.550000000 +0000
++++ xmms-1.2.11-20071117cvs.sw/intl/dcigettext.c	2022-03-03 02:59:00.130000000 +0000
+@@ -72,7 +72,7 @@
+ #ifdef _LIBC
+   /* Guess whether integer division by zero raises signal SIGFPE.
+      Set to 1 only if you know for sure.  In case of doubt, set to 0.  */
+-# if defined __alpha__ || defined __arm__ || defined __i386__ \
++# if defined __alpha__ || defined __sw_64__ || defined __arm__ || defined __i386__ \
+      || defined __m68k__ || defined __s390__
+ #  define INTDIV0_RAISES_SIGFPE 1
+ # else
