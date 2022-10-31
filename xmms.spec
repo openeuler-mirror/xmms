@@ -1,7 +1,7 @@
 Name:           xmms
 Epoch:          1
 Version:        1.2.11
-Release:        41.20071117cvs
+Release:        42.20071117cvs
 License:        GPLv2+
 Summary:        XMMS is a legacy GTK+1 music player modeled after Winamp
 URL:            https://git.conf.top/public/rpmbuild/src/master/xmms
@@ -34,6 +34,7 @@ Patch0013:      xmms-alsa-fix-loop.patch
 Patch0014:      xmms-1.2.11-mikmod-fix.patch
 Patch0015:      xmms-1.2.11-a-b.patch
 Patch9000:      9000-add-stack-protector-for-build.patch
+Patch9001:      xmms-1.2.11-20071117cvs-sw.patch
 
 %description
 XMMS is a legacy GTK+1 music player similar to Winamp's. XMMS supports
@@ -101,6 +102,9 @@ install -Dpm 644 xmms.pc %{buildroot}%{_libdir}/pkgconfig/xmms.pc
 %{_mandir}/man1/*xmms.1*
 
 %changelog
+* Wed Oct 26 2022 wuzx<wuzx1226@qq.com> - 1:1.2.11-42.20071117cvs
+- Add sw64 architecture
+
 * Thu Jan 13 2022 Chen Chen <chen_aka_jan@163.com> - 1:1.2.11-41.20071117cvs
 - fix mkinstalldirs path error
 
