@@ -1,0 +1,12 @@
+diff -up  a/Output/alsa/audio.c  b/Output/alsa/audio.c
+---  a/Output/alsa/audio.c	2023-05-08 17:07:45.789970322 +0800
++++  b/Output/alsa/audio.c	2023-05-08 17:08:31.766815254 +0800
+@@ -873,7 +873,7 @@ static void *alsa_loop(void *arg)
+ 	g_free(thread_buffer);
+ 	thread_buffer = NULL;
+ 	pthread_exit(NULL);
+-	return;
++	return 0;
+ }
+ 
+ /* open callback */
